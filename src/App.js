@@ -1,10 +1,19 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './pages/Home/Home';
+import NotFound from './pages/NotFound/NotFound';
+import Footer from './pages/Shared/Footer/Footer';
+import Header from './pages/Shared/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='bg-info py-5'>Welcome to Private quran tutor</h1>
-      <p className='bg-dark text-info h3 py-5'>Our upcoming offer...</p>
+    <div>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='*' element={<NotFound/>}/>
+      </Routes>
+      <Footer/>
     </div>
   );
 }
