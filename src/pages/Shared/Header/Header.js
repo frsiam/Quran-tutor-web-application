@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <nav className="navbar navbar-expand-md navbar-light" style={{backgroundColor: '#e3f2fd'}}>
-            <div className="container py-2">
+            <div className="container-fluid py-2">
                 <Link className="navbar-brand" to="/"><span className='fs-4 fw-bolder text-uppercase bg-dark p-2 text-info shadow rounded'>Quran <span className='border-right border me-2 border-primary'></span><span className='text-white'>Tutor</span></span></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -17,19 +17,8 @@ const Header = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="#">Link</a>
                         </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider"/></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
                         <li className="nav-item">
-                            <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            <a className="nav-link" href="blogs">Blogs</a>
                         </li>
                     </ul>
                     <form className="d-flex">
