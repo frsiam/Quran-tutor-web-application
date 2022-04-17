@@ -4,10 +4,9 @@ import Services from './Services/Services';
 
 const Home = () => {
     return (
-        <div>
-            <Banner/>
-            <h3>This is Home</h3>
-            <Services/>
+        <div className='position-relative min-vh-100'>
+            <Banner />
+            <Services />
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import banner from '../../../images/banner.png'
+import './Banner.css'
 import banner1 from '../../../images/banner/banner1.png'
 import banner2 from '../../../images/banner/banner2.png'
 import banner3 from '../../../images/banner/banner3.png'
@@ -14,21 +14,21 @@ const Banner = () => {
             </div>
             <div className="carousel-inner">
                 <div className="carousel-item active" data-bs-interval="10000">
-                    <img src={banner1} className="d-block w-100" alt="..." />
+                    <img src={banner1} className="d-block w-100 banner-img" alt="..." />
                     <div className="carousel-caption d-none d-md-block text-white">
                         <h5>Our Best Course</h5>
                         <p>Online Quran classes for bagginess with Quran Translation.</p>
                     </div>
                 </div>
                 <div className="carousel-item" data-bs-interval="2000">
-                    <img src={banner2} className="d-block w-100" alt="..."/>
+                    <img src={banner2} className="d-block w-100 banner-img" alt="..."/>
                         <div className="carousel-caption d-none d-md-block text-white">
                             <h5>Learn Quran With Tajweed</h5>
                             <p>Quran tutor offers an online Quran Tajweed course for both men and women.</p>
                         </div>
                 </div>
                 <div className="carousel-item">
-                    <img src={banner3} className="d-block w-100" alt="..."/>
+                    <img  src={banner3} className="d-block w-100 banner-img" alt="..."/>
                         <div className="carousel-caption d-none d-md-block text-white">
                             <h5>Quran reading course</h5>
                             <p>We provide an easy way for the newborn Muslims and adults to seek the Holy Quran.</p>

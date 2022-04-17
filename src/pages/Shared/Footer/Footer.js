@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     const year = new Date().getFullYear()
     return (
-        <section className="fixed-bottom">
+        <section className="postion-fixed mt-5 bottom-5">
             <footer className="text-center text-white" style={{backgroundColor:'#0a4275'}}>
                 <div className="container p-4 pb-0">
                     <section className="">
