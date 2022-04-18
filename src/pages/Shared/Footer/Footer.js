@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
                 <div className="text-center p-3" style={{backgroundColor:'rgba(0, 0, 0, 0.2)'}}>
                     © {year} Copyright :
-                    <span className="text-white"> Quran Tutor</span>
+                    <span className="text-white fw-bold h6"> FR Siam</span>
                 </div>
             </footer>
         </section>
