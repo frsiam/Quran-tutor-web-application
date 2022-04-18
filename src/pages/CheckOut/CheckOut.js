@@ -1,8 +1,11 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 import useServices from '../hooks/useServices';
 
 const CheckOut = () => {
+    const [user,loading] = useAuthState(auth)
     const { serviceId } = useParams()
     const allData = useServices()
     const singleData = allData?.find(x => x.id === parseInt(serviceId))

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Shared/Loading/Loading';
 
 const Register = () => {
     // const [successMessage, setSuccess] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+    const navigate = useNavigate();
 
     const [
         createUserWithEmailAndPassword,
@@ -18,8 +20,13 @@ const Register = () => {
     // if(createError){
     //     setErrorMessage(createError.message)
     // }
+    if(loading){
+        return <Loading/>;
+    }
+
     if (createUser) {
-        toast('Congratulations ! Registration successfully complete.')
+        toast('Congratulations ! Registration successfully complete.');
+        navigate('/home')
     }
     
     const handleRgister = event => {
