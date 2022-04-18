@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 const Footer = () => {
     const year = new Date().getFullYear();
     const navigate = useNavigate()
+    const handleNavigate = () => {
+        navigate('/register')
+    }
     return (
         <section className="postion-fixed mt-5 bottom-5">
             <footer className="text-center text-white" style={{backgroundColor:'#0a4275'}}>
@@ -11,7 +14,7 @@ const Footer = () => {
                     <section className="">
                         <p className="d-flex justify-content-center align-items-center">
                             <span className="me-3">Register for free</span>
-                            <button onClick={navigate('/register')} type="button" className="btn btn-outline-light btn-rounded">
+                            <button onClick={handleNavigate} className="btn btn-outline-light btn-rounded">
                                 Sign up!
                             </button>
                         </p>
