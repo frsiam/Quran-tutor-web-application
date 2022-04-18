@@ -10,9 +10,9 @@ const CheckOut = () => {
     const { serviceId } = useParams()
     const allData = useServices()
     const singleData = allData?.find(x => x.id === parseInt(serviceId))
-    if(!user){
-        return <Loading/>
-    }
+    // if(!user){
+    //     return <Loading/>
+    // }
     return (
         <div className='position-relative min-vh-100'>
             <h3>Here checkout our services of id is {serviceId}</h3>

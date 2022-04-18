@@ -29,7 +29,8 @@ const Header = () => {
                             <Link className="nav-link" to="blogs">Blogs</Link>
                         </li>
                     </ul>
-                    <div className="d-flex">
+                    <div className="d-flex align-items-center">
+                        {user && <p className='mt-3 fw-bold'>{user.displayName}</p>}
                         {
                             user ? 
                             <Link to='login' onClick={handleSignOut} className="btn btn-link text-decoration-none" type="submit">Sign Out</Link>
