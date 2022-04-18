@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from './SocialLogin';
 
 const Register = () => {
-    // const [successMessage, setSuccess] = useState('')
+    const [terms, setTerms] =useState(false);
     const [errorMessage, setErrorMessage] = useState('')
     const navigate = useNavigate();
 
@@ -17,11 +17,10 @@ const Register = () => {
         createUser,
         loading,
         createError,
-    ] = useCreateUserWithEmailAndPassword(auth);
-    // if(createError){
-    //     setErrorMessage(createError.message)
-    // }
-    if (loading) {
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
+
+    if (loading || updating) {
         return <Loading />;
     }
 
@@ -30,7 +29,7 @@ const Register = () => {
         navigate('/home')
     }
 
-    const handleRgister = event => {
+    const handleRgister = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -42,7 +41,10 @@ const Register = () => {
             return;
         }
         setErrorMessage('')
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+          toast('Updated profile');
+          navigate('/home')
     }
     return (
         <div className='position-relative min-vh-100 my-5'>
@@ -76,16 +78,16 @@ const Register = () => {
                     <p className='text-danger'>{errorMessage}</p>
 
                     {/* <!-- Checkbox --> */}
-                    {/* <div className="form-check d-flex justify-content-center mb-4">
-                    <input className="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                    <label className="form-check-label" htmlFor="form2Example33">
-                        Subscribe to our newsletter
+                    <div className="form-check d-flex justify-content-center mb-4">
+                    <input onClick={() => setTerms(!terms)} name='terms' className="form-check-input me-2" type="checkbox" value="" id="form2Example33" />
+                    <label className={`form-check-label ${terms ? 'text-primary':'text-danger'}`} htmlFor="form2Example33">
+                        Accepts the all terms and conditions. 
                     </label>
-                </div> */}
+                </div>
 
                     {/* <!-- Submit button --> */}
                     <div className='text-center'>
-                        <button type="submit" className="btn btn-primary btn-block mb-4 w-100">Register</button>
+                        <button disabled={!terms} type="submit" className="btn btn-primary btn-block mb-4 w-100">Register</button>
                     </div>
                     <p>Already have an account ? <Link to="/login" className="text-decoration-none">Please Login</Link></p>
                 </form>

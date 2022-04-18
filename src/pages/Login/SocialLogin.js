@@ -21,7 +21,7 @@ const SocialLogin = () => {
         navigate('/home')
       }
     return (
-        <div className='container'>
+        <div>
             <p>or sign up with:</p>
             {errorElement}
             <div className='my-2'>
