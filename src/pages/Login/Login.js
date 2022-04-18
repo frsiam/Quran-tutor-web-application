@@ -2,18 +2,26 @@ import React, { useRef } from 'react';
 import './Login.css'
 import loginimg from '../../images/others/signin.png'
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
 
     const handleSubmit = event => {
         event.preventDefault();
         console.log('submitted');
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email);
-        console.log(password);
+        signInWithEmailAndPassword(email,password)
     }
     return (
         <section className="intro position-relative min-vh-100">

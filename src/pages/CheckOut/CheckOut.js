@@ -9,6 +9,7 @@ const CheckOut = () => {
     return (
         <div className='position-relative min-vh-100'>
             <h3>Here checkout our services of id is {serviceId}</h3>
+            <h4>Name of Course: {singleData.name}</h4>
         </div>
     );
 };
