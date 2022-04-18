@@ -8,7 +8,7 @@ const Review = () => {
         { name: 'Abdur Rahman', id: 3, comment: "The 'Quran tutor' provide an easy way for the newborn Muslims and adults to seek the Holy Quran.", rating: 4 }
     ]
     return (
-        <div className='container'>
+        <div className='container pb-5'>
             {/* <h1>Review</h1> */}
             <div className="row">
                 {

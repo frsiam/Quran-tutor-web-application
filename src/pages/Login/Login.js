@@ -4,6 +4,7 @@ import loginimg from '../../images/others/signin.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -66,8 +67,10 @@ const Login = () => {
                                                 <button className="btn btn-info btn-block btn-lg" type="submit">Login</button>
                                                 <p className="small mt-3 mb-4 text-muted">Forgot <span className="fw-bold"><a href="#!" className="text-muted">Username</a> / <a href="#!" className="text-muted">Password</a>?</span></p>
                                                 <Link to="/register" className="text-decoration-none">Create your Account</Link>
+                                               <div className='w-100'>
+                                               <SocialLogin/>
+                                               </div>
                                             </div>
-
                                         </form>
                                     </div>
 
