@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import './Login.css'
 import loginimg from '../../images/others/signin.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const navigate = useNavigate()
 
     const [
         signInWithEmailAndPassword,
@@ -15,10 +16,13 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+    
+    if(user){
+        navigate('/home')
+    }
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('submitted');
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email,password)
