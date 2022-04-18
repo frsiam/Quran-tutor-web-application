@@ -13,6 +13,7 @@ const Login = () => {
     const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
+    let errorElement;
 
     const [
         signInWithEmailAndPassword,
@@ -23,6 +24,10 @@ const Login = () => {
     
     if(user){
         navigate(from, { replace: true });
+    }
+
+    if(error){
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>;
     }
 
     const handleSubmit = event => {
@@ -52,6 +57,8 @@ const Login = () => {
                                         <form onSubmit={handleSubmit} className="col-md-6 col-xl-4 text-center">
 
                                             <h2 className="fw-bold mb-4 pb-2">Member Login</h2>
+                                            <span>
+                                        {errorElement}</span>
 
                                             <div className="form-outline mb-3">
                                                 {/* <label className="form-label" htmlFor="typeEmail">Email</label> */}
