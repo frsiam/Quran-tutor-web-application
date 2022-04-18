@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Login.css'
 import loginimg from '../../images/others/signin.png'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        console.log('submitted');
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        console.log(email);
+        console.log(password);
+    }
     return (
-        <section className="intro">
+        <section className="intro position-relative min-vh-100">
             <div className="mask d-flex align-items-center h-100 gradient-custom">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -21,27 +33,27 @@ const Login = () => {
                                             </div>
 
                                         </div>
-                                        <div className="col-md-6 col-xl-4 text-center">
+                                        <form onSubmit={handleSubmit} className="col-md-6 col-xl-4 text-center">
 
                                             <h2 className="fw-bold mb-4 pb-2">Member Login</h2>
 
                                             <div className="form-outline mb-3">
                                                 {/* <label className="form-label" htmlFor="typeEmail">Email</label> */}
-                                                <input type="email" id="typeEmail" className="form-control form-control-lg" placeholder='Email' />
+                                                <input ref={emailRef} type="email" id="typeEmail" className="form-control form-control-lg" placeholder='Email' required />
                                             </div>
 
                                             <div className="form-outline mb-4">
                                                 {/* <label className="form-label" htmlFor="typePassword">Password</label> */}
-                                                <input type="password" id="typePassword" className="form-control form-control-lg" placeholder='Password' />
+                                                <input ref={passwordRef} type="password" id="typePassword" className="form-control form-control-lg" placeholder='Password' required />
                                             </div>
 
                                             <div className="text-center">
                                                 <button className="btn btn-info btn-block btn-lg" type="submit">Login</button>
                                                 <p className="small mt-3 mb-4 text-muted">Forgot <span className="fw-bold"><a href="#!" className="text-muted">Username</a> / <a href="#!" className="text-muted">Password</a>?</span></p>
-                                                <a href="#!" className="link-info">Create your Account <i className="fas fa-long-arrow-alt-right"></i></a>
+                                                <Link to="/register" className="text-decoration-none">Create your Account</Link>
                                             </div>
 
-                                        </div>
+                                        </form>
                                     </div>
 
                                 </div>
