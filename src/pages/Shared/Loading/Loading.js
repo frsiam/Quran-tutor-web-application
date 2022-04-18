@@ -2,9 +2,9 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div class="d-flex align-items-center container mx-auto justify-content-evenly text-primary">
+        <div className="d-flex align-items-center container mx-auto justify-content-evenly text-primary">
             <strong>Loading...</strong>
-            <div class="spinner-border" role="status" aria-hidden="true"></div>
+            <div className="spinner-border" role="status" aria-hidden="true"></div>
         </div>
     );
 };

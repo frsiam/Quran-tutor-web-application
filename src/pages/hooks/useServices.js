@@ -19,7 +19,7 @@ const useServices = () => {
         {
             name: 'Arabic Reading Course',
             id: 2,
-            description: "It’s very important to point to be noted for a Muslim to seek knowledge of the Quran and Islam.",
+            description: "It's very important to point to be noted for a Muslim to seek knowledge of the Quran and Islam.",
             img: [service2, chekout2],
             price: 500,
             benifits: ['Makhariji pronunciation of Arabic letters', 'Basic knowledge about Islam and Prophets of Allah', 'Memorizing six Kalimas']
@@ -27,7 +27,7 @@ const useServices = () => {
         {
             name: 'Quran Tajweed Course',
             id: 3,
-            description: 'The word Tajweed has come from an Arabic word ‘’Jayyid’’ which means ‘’to do something proficiently and effectively’’.',
+            description: 'The word Tajweed has come from an Arabic word "Jayyid" which means "to do something proficiently and effectively".',
             img: [service3, chekout3],
             price: 1000,
             benifits: ['Makhariji pronunciation of Arabic letters', 'Learning Masnoon Duas', 'Memorizing six Kalimas']

@@ -20,10 +20,17 @@ const CheckOut = () => {
                 <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img width={'100%'} style={{height:'400px'}} src={img[1]} className="img-fluid" />
                 </div>
-                <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#!" className="btn btn-primary">Button</a>
+                <div className="card-body ms-3">
+                    <h5 className="card-title">{name}</h5>
+                    <div className='card-text'>
+                        <h6>Some Benifits of this course:</h6>
+                        <ul>
+                            <li>{benifits[0]}</li>
+                            <li>{benifits[1]}</li>
+                            <li>{benifits[2]}</li>
+                        </ul>
+                    </div>
+                    <button className="btn btn-primary">Proceed Checkout</button>
                 </div>
             </div>
         </div>
